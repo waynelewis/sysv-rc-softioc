@@ -120,6 +120,8 @@ installioc() {
 # Default-Stop:      0 1 6
 # Short-Description: An EPICS Soft IOC
 # Description:       Control a single software IOC
+# chkconfig: 2345 99 01
+# description:       Control a single software IOC
 ### END INIT INFO
 
 . "$INITBASESCRIPT"
@@ -201,14 +203,16 @@ enable)
 	requireroot
 	[ -z "$1" ] && die "Missing argument"
 	echo "Enable: softioc-$1"
-	update-rc.d "softioc-$1" defaults 99
+	#update-rc.d "softioc-$1" defaults 99
+	chkconfig "softioc-$1" on
 	;;
 
 disable)
 	requireroot
 	[ -z "$1" ] && die "Missing argument"
 	echo "Disable: softioc-$1"
-	update-rc.d -f "softioc-$1" remove
+	#update-rc.d -f "softioc-$1" remove
+	chkconfig "softioc-$1" off
 	;;
 
 stopall)

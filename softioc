@@ -23,6 +23,8 @@
 #
 # The environment of the IOC is determined by the config scripts
 #
+# chkconfig: 2345 99 01
+# description: softIOC startup script
 
 PATH=/sbin:/bin:/usr/sbin:/usr/bin
 
